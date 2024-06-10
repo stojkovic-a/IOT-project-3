@@ -43,7 +43,7 @@ export class SensorController implements OnApplicationBootstrap {
         }
     }
 
-    @Interval(5000)
+    @Interval(2000)
     async sensorStream() {
         try {
             const userProperties = { 'x-version': '1.0.0' };
