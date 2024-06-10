@@ -1,0 +1,1 @@
+docker run -d --name sensor --net BRIDGE sensor:1

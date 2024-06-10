@@ -1,0 +1,8 @@
+docker run -d --name influxdb2 --net BRIDGE --publish 8086:8086 --mount type=volume,source=influxdb2-data,target=/var/lib/influxdb2 --mount type=volume,source=influxdb2-config,target=/etc/influxdb2 --env DOCKER_INFLUXDB_INIT_MODE=setup --env DOCKER_INFLUXDB_INIT_USERNAME=aleksandar10 --env DOCKER_INFLUXDB_INIT_PASSWORD=iotPassword10 --env DOCKER_INFLUXDB_INIT_ORG=Elfak --env DOCKER_INFLUXDB_INIT_BUCKET=PowerConsumption --env DOCKER_INFLUXDB_INIT_RETENTION=0 influxdb:2
+
+
+docker run --name influxdb2 --publish 8086:8086 --mount type=volume,source=influxdb2-data,target=/var/lib/influxdb2 --mount type=volume,source=influxdb2-config,target=/etc/influxdb2 influxlocal:1
+
+
+
+influx write -b PowerConsumption -f /var/lib/influxdb2/household_power_consumption.csv --header "#constant measurement,power_consum" --header "#datatype double,double,double,double,double,double,double,dateTime"

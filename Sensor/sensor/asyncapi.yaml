@@ -1,0 +1,64 @@
+asyncapi: 3.0.0
+id: https://github.com/stojkovic-a/IOT-Project-2/tree/main/Sensor/sensor
+info:
+    title: Sensor
+    version: 1.0.0
+    description: "Simulates a sensor by reading a next record from database every 5 seconds"
+servers:
+    MosquittoInDev:
+        host: 'localhost:1883'
+        protocol: mqtt
+        description: "Mqtt broker: Mosquitto"
+channels:
+    sensor:
+        address: sensor
+        description: "This channel is used to exchange values from sensor"
+        messages:
+            fields:
+                $ref: "#/components/messages/fields"
+        servers:
+            - $ref: "#/servers/MosquittoInDev"
+        bindings:
+            mqtt:
+                qos: 2
+
+operations:
+    onSensorRead:
+        title: "Sensor Read"
+        summary: "Action when sensor reads data"
+        channel:
+            $ref: "#/channels/sensor"
+        action: send
+
+components:
+    messages:
+        fields:
+            summary: "Data from sensor"
+            payload:
+                type: object
+                properties:
+                    data:
+                        $ref: "#/components/schemas/fieldsSchema"
+    schemas:
+        fieldsSchema:
+            type: object
+            properties:
+                measurement:
+                    type: string
+                time:
+                    type: string
+                    format: date-time
+                globalActivePower:
+                    type: number
+                globalIntensity:
+                    type: number
+                globalReactivePower:
+                    type: number
+                subMetering_1:
+                    type: number
+                subMetering_2:
+                    type: number
+                subMetering_3:
+                    type: number
+                voltage:
+                    type: number
