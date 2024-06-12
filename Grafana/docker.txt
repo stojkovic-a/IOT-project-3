@@ -1,0 +1,5 @@
+docker pull grafana/grafana
+docker run -d --name=grafana -p 4545:4545 -e GF_SERVER_HTTP_PORT=4545 --volume grafana-storage:/var/lib/grafana --net BRIDGE grafana/grafana 
+
+username:admin
+password: iotPassword10

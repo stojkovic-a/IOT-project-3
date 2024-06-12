@@ -2,7 +2,7 @@
 {
     public class NATSMessage
     {
-        public string Pattern { get; set; }
-        public Window Data { get; set; }
+        public string Pattern { get; set; } = null!;
+        public Window Data { get; set; } = null!;
     }
 }

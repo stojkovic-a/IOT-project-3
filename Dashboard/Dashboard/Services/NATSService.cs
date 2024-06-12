@@ -4,16 +4,16 @@ namespace Dashboard.Services
 {
     public class NATSService : INATSService
     {
-        private IConfiguration _config;
-        private ConnectionFactory _cf;
-        private IConnection _connection;
-        private Dictionary<string, IAsyncSubscription> _subs;
+        private readonly IConfiguration _config;
+        private readonly ConnectionFactory _cf;
+        private readonly IConnection _connection;
+        private readonly Dictionary<string, IAsyncSubscription> _subs;
         public NATSService(IConfiguration config)
         {
             _config = config;
             _cf = new ConnectionFactory();
             _connection = _cf.CreateConnection(_config.GetSection("NATSServer").Value, true);
-            _subs=new Dictionary<string, IAsyncSubscription>();
+            _subs=[];
         }
 
         public void Disconnect()
@@ -36,9 +36,9 @@ namespace Dashboard.Services
 
         public void UnsubscribeFromTopic(string topic)
         {
-            if (_subs.ContainsKey(topic))
+            if (_subs.TryGetValue(topic, out IAsyncSubscription? value))
             {
-                _subs[topic].Unsubscribe();
+                value.Unsubscribe();
             }
         }
     }

@@ -23,10 +23,11 @@ export class SensorController implements OnApplicationBootstrap {
     }
 
 
-    // @MessagePattern('api:To')
-    // sub(@Payload() data, @Ctx() context: MqttContext) {
-    //     console.log(data);
-    // }
+    @MessagePattern('ekuiperAnalytics')
+    sub(@Payload() data, @Ctx() context: MqttContext) {
+        console.log(data);
+        console.log('aa')
+    }
    
 
     async test() {
