@@ -23,7 +23,7 @@ export class SensorController implements OnApplicationBootstrap {
     }
 
 
-    @MessagePattern('ekuiperAnalytics')
+    @MessagePattern('ekuiperAnalytics:globalActivePower')
     sub(@Payload() data, @Ctx() context: MqttContext) {
         console.log(data);
         console.log('aa')

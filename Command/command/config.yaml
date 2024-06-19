@@ -1,0 +1,14 @@
+MQTT: 
+    MQTTServer: localhost
+    MQTTPort: 1883
+    Topics:
+        - ekuiperAnalytics:voltage
+        - ekuiperAnalytics:globalActivePower
+        - ekuiperAnalytics:globalReactivePower
+        - ekuiperAnalytics:globalIntensity
+        - ekuiperAnalytics:subMetering1
+        - ekuiperAnalytics:subMetering2
+        - ekuiperAnalytics:subMetering3
+Websocket:
+    Address: localhost
+    Port: 7722
