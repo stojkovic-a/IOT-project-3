@@ -21,9 +21,15 @@ namespace Dashboard.Services
             {
                 throw new Exception("appsettings error");
             }
-
-            await _influx.BucketInit(bucketName.ToString());
-
+            try
+            {
+                await _influx.BucketInit(bucketName.ToString());
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Init failed trying to procede");
+            }
             async void e(object? sender, MsgHandlerEventArgs args)
             {
                 var temp = JsonConvert.DeserializeObject<NATSMessage>(Encoding.UTF8.GetString(args.Message.Data));
