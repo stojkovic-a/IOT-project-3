@@ -8,8 +8,8 @@ async function bootstrap() {
   const microserviceMqtt = app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.MQTT,
     options: {
-      url: 'mqtt://localhost:1883',
-      // url: 'mqtt://mosquitto:1883',
+      // url: 'mqtt://localhost:1883',
+      url: 'mqtt://mosquitto:1883',
 
     }
   });
@@ -17,7 +17,7 @@ async function bootstrap() {
   const microserviceNATS = app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.NATS,
     options: {
-      servers: ['nats://localhost:4222']
+      servers: ['nats://nats-main:4222']
     }
   });
   await app.startAllMicroservices();

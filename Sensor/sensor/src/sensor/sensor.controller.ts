@@ -23,11 +23,11 @@ export class SensorController implements OnApplicationBootstrap {
     }
 
 
-    @MessagePattern('ekuiperAnalytics:globalActivePower')
-    sub(@Payload() data, @Ctx() context: MqttContext) {
-        console.log(data);
-        console.log('aa')
-    }
+    // @MessagePattern('ekuiperAnalytics:globalActivePower')
+    // sub(@Payload() data, @Ctx() context: MqttContext) {
+    //     console.log(data);
+    //     console.log('aa')
+    // }
    
 
     async test() {
@@ -49,6 +49,7 @@ export class SensorController implements OnApplicationBootstrap {
         try {
             const userProperties = { 'x-version': '1.0.0' };
             const data = await this.sensorService.getNextValue();
+            console.log(data)
             const record = new MqttRecordBuilder(data)
                 .setProperties({ userProperties })
                 .setQoS(2)

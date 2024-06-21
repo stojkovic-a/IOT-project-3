@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@keyframes centerToEdge {
+  0% {
+    background: radial-gradient(circle, red 0%, transparent 0%);
+  }
+  5% {
+    background: radial-gradient(circle, red 5%, transparent 5%);
+  }
+  10%{
+    background: radial-gradient(circle, red 10%, transparent 10%);
+  }
+
+  15%{
+    background: radial-gradient(circle, red 15%, transparent 15%);
+  }
+
+  20%{
+    background: radial-gradient(circle, red 20%, transparent 20%);
+  }
+
+  25%{
+    background: radial-gradient(circle, red 25%, transparent 25%);
+  }
+  30%{
+    background: radial-gradient(circle, red 30%, transparent 30%);
+  }
+  35%{
+    background: radial-gradient(circle, red 35%, transparent 35%);
+  }
+  40%{
+    background: radial-gradient(circle, red 40%, transparent 40%);
+  }
+  45%{
+    background: radial-gradient(circle, red 45%, transparent 45%);
+  }
+  50%{
+    background: radial-gradient(circle, red 50%, transparent 50%);
+  }
+  55%{
+    background: radial-gradient(circle, red 55%, transparent 55%);
+  }
+  60%{
+    background: radial-gradient(circle, red 60%, transparent 60%);
+  }
+  65%{
+    background: radial-gradient(circle, red 65%, transparent 65%);
+  }
+  70%{
+    background: radial-gradient(circle, red 75%, transparent 75%);
+  }
+  75%{
+    background: radial-gradient(circle, red 75%, transparent 75%);
+  }
+  80%{
+    background: radial-gradient(circle, red 80%, transparent 80%);
+  }
+  85%{
+    background: radial-gradient(circle, red 85%, transparent 85%);
+  }
+  90%{
+    background: radial-gradient(circle, red 90%, transparent 90%);
+  }
+  95%{
+    background: radial-gradient(circle, red 95%, transparent 95%);
+  }
+  100% {
+    background: radial-gradient(circle, red 100%, transparent 100%);
+  }
+}

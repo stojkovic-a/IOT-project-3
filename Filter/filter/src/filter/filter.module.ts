@@ -10,8 +10,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'FILTER_MQTT',
         transport: Transport.MQTT,
         options: {
-          url: 'mqtt://localhost:1883',
-          // url: 'mqtt://mosquitto:1883',
+          // url: 'mqtt://localhost:1883',
+          url: 'mqtt://mosquitto:1883',
 
         }
       },
@@ -19,7 +19,9 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'FILTER_NATS',
         transport: Transport.NATS,
         options: {
-          servers: ['nats://localhost:4222']
+          // servers: ['nats://localhost:4222']
+          servers: ['nats://nats-main:4222']
+
         }
       }
     ]),

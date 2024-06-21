@@ -1,0 +1,1 @@
+docker run -d --name filter -p 1111:1111 --net BRIDGE filter:1

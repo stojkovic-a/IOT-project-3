@@ -1,0 +1,1 @@
+docker run -d -p 3333:3333 --net BRIDGE --name webpage webpage:1

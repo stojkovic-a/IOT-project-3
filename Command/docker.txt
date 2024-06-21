@@ -1,0 +1,1 @@
+docker run --net BRIDGE --name command -d -p 7722:7722 command:1

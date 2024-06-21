@@ -1,5 +1,6 @@
 MQTT: 
-    MQTTServer: localhost
+    MQTTServer: mosquitto
+    # MQTTServer: localhost
     MQTTPort: 1883
     Topics:
         - ekuiperAnalytics:voltage
@@ -10,5 +11,5 @@ MQTT:
         - ekuiperAnalytics:subMetering2
         - ekuiperAnalytics:subMetering3
 Websocket:
-    Address: localhost
+    Address: 0.0.0.0
     Port: 7722
