@@ -16,8 +16,4 @@ var app = builder.Build();
 var natsToInflux = app.Services.GetRequiredService<IDashboardService>();
 await natsToInflux.NatsToInfluxDBAsync();
 
-
-
-
-
 app.Run();

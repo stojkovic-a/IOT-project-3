@@ -30,15 +30,25 @@ export class FilterController implements OnApplicationBootstrap {
         }
     }
 
+    @MessagePattern('filter', Transport.NATS)
+    getNotifications(@Payload() data: number[], @Ctx() context: NatsContext) {
+        console.log(data)
+    }
+
     @Interval(10000)
     async SendWindowAverage() {
         try {
-            const avgData = await this.filterService.getWindowDataAsync();
+            const avgData = await this.filterService
+                .getWindowDataAsync();
             const headers = nats.headers();
             headers.set('x-version', '1.0.0')
 
-            const record = new NatsRecordBuilder(avgData).setHeaders(headers).build();
-            await this.clientNATS.emit('filter', record).subscribe();
+            const record = new NatsRecordBuilder(avgData)
+                .setHeaders(headers)
+                .build();
+            await this.clientNATS
+                .emit('filter', record)
+                .subscribe();
         }
         catch (e) {
             console.error(e)
@@ -46,9 +56,4 @@ export class FilterController implements OnApplicationBootstrap {
     }
 
 
-
-    // @MessagePattern('filter', Transport.NATS)
-    // getNotifications(@Payload() data: number[], @Ctx() context: NatsContext) {
-    //     console.log(data)
-    // }
 }
