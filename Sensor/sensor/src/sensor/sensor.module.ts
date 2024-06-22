@@ -11,8 +11,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'SENSOR_SERVICE',
         transport: Transport.MQTT,
         options: {
-          url: 'mqtt://localhost:1883',
-          // url: 'mqtt://mosquitto:1883',
+          // url: 'mqtt://localhost:1883',
+          url: 'mqtt://mosquitto:1883',
           
         }
       }
