@@ -1,0 +1,5 @@
+MqttConfig:
+    insecureSkipVerify: true
+    protocolVersion: 3.1.1
+    qos: 2
+    server: mqtt://mosquitto:1883

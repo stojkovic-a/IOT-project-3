@@ -1,0 +1,13 @@
+MQTT template:
+    bufferLength: 1024
+    enableCache: false
+    format: json
+    insecureSkipVerify: false
+    omitIfEmpty: false
+    protocolVersion: 3.1.1
+    qos: 2
+    retained: false
+    runAsync: false
+    sendSingle: true
+    server: mqtt://mosquitto:1883
+    topic: ekuiperAnalytics
