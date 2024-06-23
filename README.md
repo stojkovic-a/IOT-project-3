@@ -25,19 +25,22 @@ Upuststva za pokretanje:
 19. Nakon toga u direktorijumu IOT-project-3 u terminalu uneti docker-compose down
 20. U okvriu istog direktorijuma izmeniti docker-compose.yml, konkretno dodati u sensor service ENV promenljivu INFLUX_API_TOKEN sa vrednoscu novodobijenog tokena, takodje u okviru IOT-project-3\Dashboard\Dashboard izmeniti appsettings.json:
 21. U sekciji "Influxdb":{ "Token":  uneti vrednost novodobijenog tokena
-22. Nakon cega ponovo u teminral uneti: docker-compose up -d
-23. Nakon toga je potrebno uneti podatke u bazu (iz istog terminala):
-24. docker cp ./Dataset/databeats-household-power-consumption/household_power_consumption.csv influxdb-compose:/var/lib/influxdb2
-25. Pa onda:
-26. docker exec -ti influxdb-compose bash
-27. influx write -b PowerConsumption -f /var/lib/influxdb2/household_power_consumption.csv --header "#constant measurement,power_consum" --header "#datatype double,double,double,double,double,double,double,dateTime"
-28. Takodje je potrebno podesiti konfiguraciju eclipse mosquitto-a, u direktorijumu IOT-project-3\Mosquitto otvoriti terminal i unesti:
-29. docker cp ./config/mosquitto.conf mosquitto-compose:/mosquitto/config
-30. Na kraju ponovo iz terminala u direktorijumu IOT-project-3 stopirati docker compose:
-31. docker-compose down
-32. I ponovo ga pokrenuti:
-33. docker-compose up -d
-34. Webpage aplikaciej se nalazi na: http://localhost:3333
-35. InfluxDB je na: http://localhost:8086
-36. Grafana je na: http://localhost:4545
-37. eKuiper manager je na: http://localhost:9082
+22. Takodje sada je potrebno azurarati image Dashboard servisa, iz terminala sa lokacije IOT-project-3\Dashboard\Dashboard:
+23. docker image rm dashoard:1
+24. docker image build -t dashoard:1 .
+25. Nakon cega ponovo u teminral sa lokacije IOT-project-3 uneti: docker-compose up -d
+26. Nakon toga je potrebno uneti podatke u bazu (iz istog terminala):
+27. docker cp ./Dataset/databeats-household-power-consumption/household_power_consumption.csv influxdb-compose:/var/lib/influxdb2
+28. Pa onda:
+29. docker exec -ti influxdb-compose bash
+30. influx write -b PowerConsumption -f /var/lib/influxdb2/household_power_consumption.csv --header "#constant measurement,power_consum" --header "#datatype double,double,double,double,double,double,double,dateTime"
+31. Takodje je potrebno podesiti konfiguraciju eclipse mosquitto-a, u direktorijumu IOT-project-3\Mosquitto otvoriti terminal i unesti:
+32. docker cp ./config/mosquitto.conf mosquitto-compose:/mosquitto/config
+33. Na kraju ponovo iz terminala u direktorijumu IOT-project-3 stopirati docker compose:
+34. docker-compose down
+35. I ponovo ga pokrenuti:
+36. docker-compose up -d
+37. Webpage aplikaciej se nalazi na: http://localhost:3333
+38. InfluxDB je na: http://localhost:8086
+39. Grafana je na: http://localhost:4545
+40. eKuiper manager je na: http://localhost:9082
